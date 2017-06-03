@@ -1,7 +1,7 @@
 Param(
 [string]$SMTPServer = "smtp.gmail.com",
-[int]$SMTPPort = 587,
-[string]$From = "madwof666@gmail.com",
+[int]$SMTPPort = 465,
+[string]$From = "madwof699@gmail.com",
 [string]$Password = "chappy666",
 [string]$To = "madwolf666@live.jp",
 [string]$Cc = "",
