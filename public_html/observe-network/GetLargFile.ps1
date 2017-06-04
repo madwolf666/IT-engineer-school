@@ -1,3 +1,4 @@
+#フォルダーのサイズを調べる
 Param(
 $RootFolder = "C:\Program Files"
 )

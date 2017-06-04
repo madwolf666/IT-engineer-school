@@ -1,3 +1,4 @@
+#プロセスの開始と終了を監視
 Write-Host "End to [Ctrl + C]"
 
 $ProcessStart = "ProcessStartSink"

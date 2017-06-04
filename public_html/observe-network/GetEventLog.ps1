@@ -1,3 +1,4 @@
+#イベントを取得してメール送信
 Write-Host "End to [Ctrl + C]"
 
 $EventLog = "EventLogSink"
