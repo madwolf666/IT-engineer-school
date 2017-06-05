@@ -1,11 +1,11 @@
 #特定ファイルの大きさの変化を監視する
-$TargetPath = "c:\\tmp\\logfile.txt"
+$TargetPath = ".\ProcessLog_20170605.txt"
 if (!(Test-Path $TargetPath)){
     Echo "ファイルが存在しません:$TargetPath";Exit
 }
 $WmiQuery = "Select * From __InstanceModificationEvent Within 3 Where TargetInstance ISA 'CIM_DataFile' And TargetInstanceName = '$TargetPath'"
 $SourceID = "LogFileModification"
-$LogFileName = "c:\tmp\FileSizeModification.log"
+$LogFileName = ".\FileSizeModification.log"
 Register-WMIEvent `
     -query $WmiQuery `
     -sourceIdentifier $SourceID `

@@ -1,8 +1,8 @@
 #ÉÅÅ[ÉãÇëóêM
 Param(
 [string]$SMTPServer = "smtp.gmail.com",
-[int]$SMTPPort = 465,
-[string]$From = "madwof699@gmail.com",
+[int]$SMTPPort = 587,
+[string]$From = "madwolf699@gmail.com",
 [string]$Password = "chappy666",
 [string]$To = "madwolf666@live.jp",
 [string]$Cc = "",
@@ -24,8 +24,13 @@ $Cc
 $Subject
 $Body
 
-Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8;
-#Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8
-#Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8;
-# -Cc $Cc
-#-Attachments $Attachment
+try {
+    Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8;
+    #Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8
+    #Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8;
+    # -Cc $Cc
+    #-Attachments $Attachment
+}Catch{
+    Write-Warning "Error"
+    $Error[0]
+}
