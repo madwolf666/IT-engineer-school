@@ -6,8 +6,10 @@ Function separatems {
 	return $L2[0]
 }
 
-$outfile = "C:\chappy\study\network\Result.txt"
-$switchList = "sutekinakaso.com"
+$outfile = "C:\Users\hal\Documents\NetBeansProjects\IT-engineer-school\public_html\prevention-trouble\Result.txt"
+#$switchList = "10.145.173.91"
+$switchList = "192.168.30.11"
+#$switchList = "sutekinakaso.com"
 #配列「$switchList」から要素を取り出し、変数「$switch」に代入して順次実行
 foreach($switch in $switchList) {
 	$TimeStamp = (Get-Date).ToString("f")

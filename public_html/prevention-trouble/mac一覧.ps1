@@ -1,6 +1,6 @@
 #MACアドレスとベンダーの一覧を読み込む
 #ダウンロードした「oui.txt」ファイルから「(hex)」とある行だけ取り出す
-$addrOrg = Select-String -Pattern "\(hex\)" -Path "C:\Users\ict\Documents\NetBeansProjects\IT-engineer-school\public_html\prevention-trouble\oui.txt"
+$addrOrg = Select-String -Pattern "\(hex\)" -Path "C:\Users\hal\Documents\NetBeansProjects\IT-engineer-school\public_html\prevention-trouble\oui.txt"
 
 #MACアドレスの先頭「00-00-00」の部分とベンダー名の部分を取り出し、連想配列「$addrDB」に登録
 $addrDB = @{}
@@ -11,7 +11,8 @@ foreach ($addrRecord in $addOrg) {
 }
 
 #同一ネットワークの各端末にpingを発行。タイムアウトは200ミリ秒
-$mynetwork = "192.168.0."
+$mynetwork = "10.145.173."
+$mynetwork = "192.168.30."
 1..254 | ForEach-Object {
     $targetAddr = $mynetwork + $_
     $r = ping $targetAddr -4 -n 1 -w 200
