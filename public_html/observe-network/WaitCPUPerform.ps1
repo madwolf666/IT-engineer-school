@@ -1,7 +1,7 @@
 #CPU‚Ì«”\‚ğŠÄ‹‚·‚é
 $WmiQuery = "Select * From __InstanceModificationEvent Within 1 Where TargetInstance ISA 'Win32_Processor'"
 $SourceID = "CPULoadPercentage"
-$LogFileName = "c:\tmp\CPULoadPercentage.log"
+$LogFileName = ".\CPULoadPercentage.log"
 Register-WMIEvent `
     -query $WmiQuery `
     -sourceIdentifier $SourceID `

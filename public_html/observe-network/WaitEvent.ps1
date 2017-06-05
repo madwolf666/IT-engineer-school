@@ -1,7 +1,7 @@
 #新しく起動したプログラムを取得する
 $WmiQuery = "SELECT * FROM __InstanceCreationEvent within 10 WHERE TargetInstance ISA 'Win32_Process'"
 $SourceID = "NewProcess"
-$LogFileName = "c:\tmp\log.txt"
+$LogFileName = ".\NewProcess.log"
 Register-WMIEvent `
     -query $WmiQuery `
     -sourceIdentifier $SourceID `

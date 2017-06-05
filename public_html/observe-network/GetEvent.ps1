@@ -3,7 +3,7 @@ Write-Host "End to [Ctrl + C]"
 
 $ProcessStart = "ProcessStartSink"
 $ProcessEnd = "ProcessEndSink"
-Register-WmiEvent -Class Win32_ProcessStartTrace -SourceIdentifier $ProseccStart
+Register-WmiEvent -Class Win32_ProcessStartTrace -SourceIdentifier $ProcessStart
 Register-WmiEvent -Class Win32_ProcessStopTrace -SourceIdentifier $ProcessEnd
 
 try{
@@ -14,16 +14,15 @@ try{
 $NewEvent
 $ProcessName
 $Time
+$NewEvent.SourceIdentifier;
 
         Switch($NewEvent.SourceIdentifier){
             $ProcessStart{
-                ([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " Start" | Out-File ("C:\Users\ict\Documents\NetBeansProjects\IT-engineer-school\public_html\observe-network\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append;
-                #([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " Start" | Out-File ("C:\Users\ict\Documents\NetBeansProjects\IT-engineer-school\public_html\observe-network\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append Write-Host $Time $ProcessName "Ç™äJénÇµÇ‹ÇµÇΩ";
+                ([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " Start" | Out-File (".\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append;
                 Break
             }
             $ProcessEnd{
-                ([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " End" | Out-File ("C:\Users\ict\Documents\NetBeansProjects\IT-engineer-school\public_html\observe-network\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append;
-                #([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " End" | Out-File ("C:\Users\ict\Documents\NetBeansProjects\IT-engineer-school\public_html\observe-network\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append Write-Host $Time $ProcessName "Ç™èIóπÇµÇ‹ÇµÇΩ";
+                ([DateTime]$Time).ToString("HH:mm:ss") + " " + $ProcessName + " End" | Out-File (".\ProcessLog_" + (Get-Date -Format "yyyyMMdd") + ".txt") -Encoding UTF8 -Append;
                 Break
             }
         }
