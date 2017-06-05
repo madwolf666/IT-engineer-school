@@ -5,7 +5,7 @@ $WmiQuery = "Select * From __InstanceCreationEvent Within 10 Where TargetInstanc
 $SourceID = "NewFile"
 $LogFileName = ".\NewFile.log"
 Register-WmiEvent `
-    -query $WmiQuery `
+    -Query $WmiQuery `
     -sourceIdentifier $SourceID `
     -Action {
         $TargetInstance = $Event.SourceEventArgs.NewEvent.TargetInstance;

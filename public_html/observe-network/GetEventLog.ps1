@@ -16,6 +16,18 @@ try{
         $Date = $Year + "/" + $Month + "/" + $Day + " " + $Hour + ":" + $Minutes
         $Date = (([DateTime]$Date)).AddHours(9).ToString("yyyy/MM/dd HH:mm:ss")
         $Message = $Log.Mesage
+
+        $Body = `
+@"
+ソース:$SourceName
+イベントID:$EventCode
+日時:$Date
+メッセージ:$Message
+----------------------------------------
+"@
+        SendMail($LogName + "イベントログ") $Body
+        Write-Output $Body
+        Remove-Event $EventLog
     }
 }Catch{
     Write-Warning "Error"
@@ -23,4 +35,19 @@ try{
 }Finally{
     Get-Event | Remove-Event
     Get-EventSubscriber | Unregister-Event
+}
+
+Function SendMail($Subject, $Body){
+    $SMTPServer = "smtp.gmail.com",
+    $SMTPPort = 587,
+    $From = "madwolf699@gmail.com",
+    $Password = "chappy666",
+    $To = "madwolf666@live.jp",
+
+    $Credential = New-Object System.Management.Automation.PSCredential(
+    $From,
+    (ConvertTo-SecureString $Password -AsPlainText -Force)
+    )
+
+    Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SMTPServer -Port $SMTPPort -Credential $Credential -UseSsl -Encoding UTF8;
 }
