@@ -1,0 +1,10 @@
+﻿00:17:26 EmEditor.exeEnd
+00:18:52 chrome.exe End
+00:18:53 chrome.exe End
+00:19:13 chrome.exe End
+00:19:27 chrome.exe End
+00:19:28 chrome.exe End
+00:19:49 mysql.exe End
+00:20:22 cmd.exe End
+00:20:23 conhost.exe End
+00:20:43 EmEditor.exe End
