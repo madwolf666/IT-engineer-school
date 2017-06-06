@@ -8,7 +8,7 @@ $SourceID = "NewFile"
 $LogFileName = ".\NewFile.log"
 $WmiQuery
 Register-WmiEvent `
-    -query $WmiQuery `
+    -Query $WmiQuery `
     -sourceIdentifier $SourceID `
     -Action {
         $TargetInstance = $Event.SourceEventArgs.NewEvent.TargetInstance;
