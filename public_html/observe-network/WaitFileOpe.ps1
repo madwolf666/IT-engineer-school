@@ -1,6 +1,6 @@
 #“Á’èƒtƒ@ƒCƒ‹‚É‘Î‚·‚é‘€ì‚ğ“¯‚ÉŠÄ‹‚·‚é
-$TargetPath = ".\ProcessLog_20170605.txt"
-$WmiQuery = "Select * From __InstanceModificationEvent Within 3 Where TargetInstance ISA 'CIM_DataFile' And TargetInstanceName = '$TargetPath'"
+$TargetPath = ".\\\\ProcessLog_20170605.txt"
+$WmiQuery = "Select * From __InstanceModificationEvent Within 3 Where TargetInstance ISA 'CIM_DataFile' And TargetInstance.Name = '$TargetPath'"
 $SourceID = "FileOperation"
 $LogFileName = ".\FileOperation.log"
 Register-WMIEvent `

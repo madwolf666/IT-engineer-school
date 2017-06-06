@@ -1,14 +1,11 @@
 #新しく作成されたファイルを監視する
 $TargetPath = ".\\\\"
 $GroupComponent = "Win32_Directory.Name=""$TargetPath"""
-#$GroupComponent = "Win32_Directory.Name=""$TargetPath"""
-$GroupComponent
 $WmiQuery = "Select * From __InstanceCreationEvent Within 10 Where TargetInstance ISA 'CIM_DirectoryContainsFile' And TargetInstance.GroupComponent='$GroupComponent'"
 $SourceID = "NewFile"
 $LogFileName = ".\NewFile.log"
-$WmiQuery
 Register-WmiEvent `
-    -Query $WmiQuery `
+    -query $WmiQuery `
     -sourceIdentifier $SourceID `
     -Action {
         $TargetInstance = $Event.SourceEventArgs.NewEvent.TargetInstance;
